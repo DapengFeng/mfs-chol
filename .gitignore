@@ -1,0 +1,8 @@
+*~
+build/
+result/
+.git.bkp*/
+doc/
+.DS_Store
+*.bin
+backup/
