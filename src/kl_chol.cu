@@ -388,7 +388,7 @@ __global__ void tiled_predict<PDE_TYPE::HELMHOLTZ>(
 }
 
 template <enum PDE_TYPE pde, typename scalar_t, typename index_t, typename real_t>
-__global__ void sectioned_eval_Kx(const const index_t  n_point,
+__global__ void sectioned_eval_Kx(const index_t        n_point,
                                   const index_t        n_section,
                                   const real_t   * __restrict__ d_xyz,
                                   const real_t   * __restrict__ d_nxyz,

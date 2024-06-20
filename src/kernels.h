@@ -31,7 +31,7 @@ enum KERNEL_TYPE
   HELMHOLTZ_NM_2D
 };
 
-const char *KERNEL_LIST = "matern\0lap_2d\0lap_3d\0scr_poi_2d\0scr_poi_3d\0kelvin_3d\0helm_2d\0helm_3d\0bilap_reg_3d\0lap_nm_2d\0helm_nm_2d\0\0";
+static const char *KERNEL_LIST = "matern\0lap_2d\0lap_3d\0scr_poi_2d\0scr_poi_3d\0kelvin_3d\0helm_2d\0helm_3d\0bilap_reg_3d\0lap_nm_2d\0helm_nm_2d\0\0";
 
 template <typename scalar_t>
 __device__ __host__
@@ -615,7 +615,7 @@ public:
   }  
 };
 
-void create_fmm_tree(std::vector<std::shared_ptr<H2_3D_Tree>> &trees,
+inline void create_fmm_tree(std::vector<std::shared_ptr<H2_3D_Tree>> &trees,
                      const KERNEL_TYPE kernel,
                      const FMM_parameters &param)
 {
@@ -826,7 +826,7 @@ class BBFMM_kelvin_3d : public bbfmm3::H2_3D_Tree
   }  
 };
 
-void create_fmm_tree(std::shared_ptr<bbfmm3::H2_3D_Tree> &tree,
+inline void create_fmm_tree(std::shared_ptr<bbfmm3::H2_3D_Tree> &tree,
                      const KERNEL_TYPE kernel,
                      const FMM_parameters &param)
 {
