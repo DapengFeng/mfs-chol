@@ -17,5 +17,7 @@ query_mesh=dat/query_plane_remesh.off
 outdir=result/kl_res/supernodes/
 sec_num=16
 
+# press 'U' to lauch the solver, and then quit
 mkdir -p ${outdir}
-${exe_2} ${mesh} ${outdir} ${sec_num} ${query_mesh}
+${exe_2} mesh=${mesh} outdir=${outdir} query_mesh=${query_mesh} rho=3 wave_num=1 tol=1e-3
+find ${outdir} -name "*.mat" -exec python plot_matrix.py {} \;
